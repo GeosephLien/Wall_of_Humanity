@@ -1,9 +1,10 @@
 // 你放在 /images/ 裡的圖片檔名清單
 //（因為 GitHub Pages 純前端無法直接掃資料夾）
 const IMAGES = [
-  "001.jpg",
-  "002.jpg",
+  "001.png",
+  "002.png",
   "003.png",
+  "004.png"
   // ...自行增加
 ].map(name => `images/${name}`);
 
