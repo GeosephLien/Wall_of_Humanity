@@ -1,12 +1,17 @@
 {
   "sortBy": "mtime",
   "order": "asc",
-  "generatedAt": "2026-01-24T19:31:52.849Z",
+  "generatedAt": "2026-01-24T19:33:22.080Z",
   "images": [
     {
       "src": "images/Image_07.png",
       "name": "Image_07.png",
-      "iso": "2026-01-24T19:31:52.122Z"
+      "iso": "2026-01-24T19:33:21.280Z"
+    },
+    {
+      "src": "images/Image_08.png",
+      "name": "Image_08.png",
+      "iso": "2026-01-24T19:33:21.284Z"
     }
   ]
 }
