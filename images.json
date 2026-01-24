@@ -1,27 +1,42 @@
 {
   "sortBy": "mtime",
   "order": "asc",
-  "generatedAt": "2026-01-24T20:18:51.315Z",
+  "generatedAt": "2026-01-24T20:47:18.554Z",
   "images": [
+    {
+      "src": "images/CA2.png",
+      "name": "CA2.png",
+      "iso": "2026-01-24T20:47:16.549Z"
+    },
     {
       "src": "images/Image_07.png",
       "name": "Image_07.png",
-      "iso": "2026-01-24T20:18:47.050Z"
+      "iso": "2026-01-24T20:47:16.554Z"
     },
     {
       "src": "images/Image_08.png",
       "name": "Image_08.png",
-      "iso": "2026-01-24T20:18:47.054Z"
+      "iso": "2026-01-24T20:47:16.557Z"
     },
     {
       "src": "images/Image_10.png",
       "name": "Image_10.png",
-      "iso": "2026-01-24T20:18:48.403Z"
+      "iso": "2026-01-24T20:47:16.560Z"
     },
     {
       "src": "images/Pixel_Thumbnail_256.png",
       "name": "Pixel_Thumbnail_256.png",
-      "iso": "2026-01-24T20:18:48.403Z"
+      "iso": "2026-01-24T20:47:16.560Z"
+    },
+    {
+      "src": "images/thumbnail.jpeg",
+      "name": "thumbnail.jpeg",
+      "iso": "2026-01-24T20:47:16.560Z"
+    },
+    {
+      "src": "images/ChatGPT%20Image%20Jan%208%2C%202026%2C%2009_08_57%20PM.png",
+      "name": "ChatGPT Image Jan 8, 2026, 09_08_57 PM.png",
+      "iso": "2026-01-24T20:47:17.687Z"
     }
   ]
 }
