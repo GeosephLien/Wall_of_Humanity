@@ -1,14 +1,3 @@
-// �A��b /images/ �̪��Ϥ��ɦW�M��
-//�]�]�� GitHub Pages �«e�ݵL�k��������Ƨ��^
-const IMAGES = [
-  "001.png",
-  "002.png",
-  "003.png",
-  "004.png"
-  // ...�ۦ�W�[
-].map(name => `./images/${name}`);
-
-
 const strip = document.getElementById("strip");
 
 // UI
@@ -29,19 +18,18 @@ h.addEventListener("input", setCSSVars);
 gap.addEventListener("input", setCSSVars);
 
 fitBtn.addEventListener("click", () => {
-  // ��Ϥ����׳]���������ת��@�Ӥ�ҡ]���� header �P padding�^
   const headerH = document.querySelector(".bar").offsetHeight;
   const target = Math.max(80, Math.min(600, window.innerHeight - headerH - 60));
   h.value = target;
   setCSSVars();
 });
 
-function makeImg(src){
+function makeImg(src, name){
   const img = new Image();
   img.loading = "lazy";
   img.decoding = "async";
   img.src = src;
-  img.alt = src.split("/").pop();
+  img.alt = name || "";
   img.onerror = () => {
     img.remove();
     console.warn("Failed to load:", src);
@@ -49,10 +37,30 @@ function makeImg(src){
   return img;
 }
 
-function render(){
+async function loadList(){
+  const res = await fetch("./images.json", { cache: "no-store" });
+  if (!res.ok) throw new Error(`images.json load failed: ${res.status}`);
+  return res.json();
+}
+
+async function render(){
   strip.innerHTML = "";
-  for (const src of IMAGES){
-    strip.appendChild(makeImg(src));
+
+  let data;
+  try {
+    data = await loadList();
+  } catch (e) {
+    strip.innerHTML = `
+      <div style="padding:14px; opacity:.9;">
+        找不到 <b>images.json</b><br/>
+        你有先執行 <code>npm run build:list</code> 嗎？
+      </div>`;
+    console.error(e);
+    return;
+  }
+
+  for (const it of data.images){
+    strip.appendChild(makeImg(`./${it.src}`, it.name));
   }
 }
 
