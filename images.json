@@ -1,27 +1,37 @@
 {
   "sortBy": "mtime",
   "order": "asc",
-  "generatedAt": "2026-01-24T20:18:51.315Z",
+  "generatedAt": "2026-01-24T20:45:33.955Z",
   "images": [
     {
       "src": "images/Image_07.png",
       "name": "Image_07.png",
-      "iso": "2026-01-24T20:18:47.050Z"
+      "iso": "2026-01-24T20:45:32.341Z"
     },
     {
       "src": "images/Image_08.png",
       "name": "Image_08.png",
-      "iso": "2026-01-24T20:18:47.054Z"
+      "iso": "2026-01-24T20:45:32.344Z"
     },
     {
       "src": "images/Image_10.png",
       "name": "Image_10.png",
-      "iso": "2026-01-24T20:18:48.403Z"
+      "iso": "2026-01-24T20:45:32.347Z"
     },
     {
       "src": "images/Pixel_Thumbnail_256.png",
       "name": "Pixel_Thumbnail_256.png",
-      "iso": "2026-01-24T20:18:48.403Z"
+      "iso": "2026-01-24T20:45:32.347Z"
+    },
+    {
+      "src": "images/CA2.png",
+      "name": "CA2.png",
+      "iso": "2026-01-24T20:45:33.221Z"
+    },
+    {
+      "src": "images/thumbnail.jpeg",
+      "name": "thumbnail.jpeg",
+      "iso": "2026-01-24T20:45:33.224Z"
     }
   ]
 }
