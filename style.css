@@ -1,0 +1,88 @@
+:root{
+  --imgH: 220px;
+  --gap: 8px;
+}
+
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans TC", sans-serif;
+  background:#0b0b0b;
+  color:#eaeaea;
+}
+
+.bar{
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display:flex;
+  gap:16px;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 14px;
+  background: rgba(20,20,20,0.92);
+  border-bottom:1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+}
+
+.title{
+  font-weight:600;
+  letter-spacing:0.2px;
+  white-space:nowrap;
+}
+
+.controls{
+  display:flex;
+  gap:14px;
+  align-items:center;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+
+.controls label{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:14px;
+  opacity:0.95;
+}
+
+.controls input[type="range"]{
+  width:160px;
+}
+
+.controls button{
+  padding:8px 10px;
+  border:1px solid rgba(255,255,255,0.14);
+  border-radius:10px;
+  background: rgba(255,255,255,0.06);
+  color:#eaeaea;
+  cursor:pointer;
+}
+.controls button:hover{
+  background: rgba(255,255,255,0.10);
+}
+
+.stage{
+  height: calc(100vh - 58px);
+  overflow:auto;
+}
+
+.strip{
+  display:flex;
+  align-items:flex-start;
+  gap: var(--gap);
+  padding: 14px;
+  width: max-content;     /* 讓內容可以無限往右延伸 */
+}
+
+.strip img{
+  height: var(--imgH);
+  width: auto;            /* 依比例縮放寬度 */
+  flex: 0 0 auto;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  user-select:none;
+  -webkit-user-drag: none;
+}

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Auto Horizontal Tiling</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="bar">
+    <div class="title">Horizontal Image Stitch (same height)</div>
+
+    <div class="controls">
+      <label>
+        Height
+        <input id="h" type="range" min="80" max="600" value="220">
+        <span id="hVal">220</span>px
+      </label>
+
+      <label>
+        Gap
+        <input id="gap" type="range" min="0" max="40" value="8">
+        <span id="gapVal">8</span>px
+      </label>
+
+      <button id="fit">Fit to window height</button>
+    </div>
+  </header>
+
+  <main class="stage">
+    <div id="strip" class="strip" aria-label="image strip"></div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
