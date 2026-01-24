@@ -1,0 +1,66 @@
+name: Sync PNG repo into /images and rebuild images.json
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/10 * * * *"   # 每 10 分鐘同步一次（你可改）
+  push:
+    branches: ["main"]
+    paths:
+      - "generate-images-json.mjs"
+      - "package.json"
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main repo (website)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          path: main
+
+      # ✅ 這裡改成你的 PNG repo：owner/repo
+      - name: Checkout PNG source repo
+        uses: actions/checkout@v4
+        with:
+          repository: GeosephLien/Image_Source   # ← 改這行
+          fetch-depth: 1
+          path: src
+          # 如果 png-source 是 private，取消下一行註解並建立 secret
+          # token: ${{ secrets.SOURCE_REPO_PAT }}
+
+      - name: Copy PNGs into main/images
+        run: |
+          mkdir -p main/images
+          # 把來源 repo 的 images/ 內容同步到主 repo images/
+          rsync -av --ignore-existing src/images/ main/images/
+          echo "Sync done."
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Generate images.json
+        working-directory: main
+        run: |
+          npm run build:list
+
+      - name: Commit & push if changed
+        working-directory: main
+        run: |
+          if git diff --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add images images.json
+          git commit -m "chore: sync png-source into /images and update images.json"
+          git push
