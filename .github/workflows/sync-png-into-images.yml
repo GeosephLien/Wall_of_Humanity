@@ -1,9 +1,14 @@
 name: Sync PNG repo into /images and rebuild images.json
 
 on:
+  # 手動仍可跑（可留著）
   workflow_dispatch:
-  schedule:
-    - cron: "*/10 * * * *"   # 每 10 分鐘同步一次（你可改）
+
+  # ✅ Image_Source push 圖片後，會用 repository_dispatch 觸發主 repo（不靠分鐘）
+  repository_dispatch:
+    types: [sync_png]
+
+  # 你改腳本/設定時也可自動跑一次（可留著）
   push:
     branches: ["main"]
     paths:
@@ -23,14 +28,13 @@ jobs:
           fetch-depth: 0
           path: main
 
-      # ✅ 這裡改成你的 PNG repo：owner/repo
       - name: Checkout PNG source repo
         uses: actions/checkout@v4
         with:
-          repository: GeosephLien/Image_Source   # ← 改這行
+          repository: GeosephLien/Image_Source
           fetch-depth: 1
           path: src
-          # 如果 png-source 是 private，取消下一行註解並建立 secret
+          # 如果 Image_Source 是 private，取消下一行註解並建立 secret
           # token: ${{ secrets.SOURCE_REPO_PAT }}
 
       - name: Copy PNGs into main/images
@@ -62,5 +66,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           git add images images.json
-          git commit -m "chore: sync png-source into /images and update images.json"
+          git commit -m "chore: sync Image_Source into /images and update images.json"
           git push
