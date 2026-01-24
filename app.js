@@ -1,12 +1,13 @@
-// §A©ñ¦b /images/ ¸Ìªº¹Ï¤ùÀÉ¦W²M³æ
-//¡]¦]¬° GitHub Pages ¯Â«eºÝµLªkª½±µ±½¸ê®Æ§¨¡^
+// ï¿½Aï¿½ï¿½b /images/ ï¿½Ìªï¿½ï¿½Ï¤ï¿½ï¿½É¦Wï¿½Mï¿½ï¿½
+//ï¿½]ï¿½]ï¿½ï¿½ GitHub Pages ï¿½Â«eï¿½ÝµLï¿½kï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ§ï¿½ï¿½^
 const IMAGES = [
   "001.png",
   "002.png",
   "003.png",
   "004.png"
-  // ...¦Û¦æ¼W¥[
-].map(name => `images/${name}`);
+  // ...ï¿½Û¦ï¿½Wï¿½[
+].map(name => `./images/${name}`);
+
 
 const strip = document.getElementById("strip");
 
@@ -28,7 +29,7 @@ h.addEventListener("input", setCSSVars);
 gap.addEventListener("input", setCSSVars);
 
 fitBtn.addEventListener("click", () => {
-  // §â¹Ï¤ù°ª«×³]¦¨µøµ¡°ª«×ªº¤@­Ó¤ñ¨Ò¡]¦©±¼ header »P padding¡^
+  // ï¿½ï¿½Ï¤ï¿½ï¿½ï¿½ï¿½×³]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½@ï¿½Ó¤ï¿½Ò¡]ï¿½ï¿½ï¿½ï¿½ header ï¿½P paddingï¿½^
   const headerH = document.querySelector(".bar").offsetHeight;
   const target = Math.max(80, Math.min(600, window.innerHeight - headerH - 60));
   h.value = target;
